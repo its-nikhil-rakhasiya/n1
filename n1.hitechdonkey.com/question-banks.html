@@ -550,6 +550,19 @@
             position: relative;
         }
 
+                /* Bridge the gap to prevent dropdown closing */
+        .main-menu ul li.menu-item-has-children::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: transparent;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
         .main-menu .submenu,
         .main-menu .mega-menu {
             position: absolute;
@@ -559,7 +572,7 @@
             visibility: hidden;
             pointer-events: none;
             /* Professional transition with slight delay for closing to make it more stable and forgiving */
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease !important;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, pointer-events 0s ease !important;
             transition-delay: 0.2s !important;
         }
 
