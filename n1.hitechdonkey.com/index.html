@@ -309,11 +309,24 @@
         }
 
         /* =============================================
-           Global 80% Page Scale - makes full page render
-           as if the browser is zoomed to 80%
+           Global 80% Page Scale
+           zoom on html: in Chromium this correctly scales
+           all visual rendering including vh units and fixed
+           positioning, giving a true browser-zoom-out effect.
         ============================================= */
         html {
             zoom: 0.8;
+        }
+
+        /* Compensate scroll-driver heights so sticky sections
+           don't leave blank scroll space after zoom.
+           380vh * 0.8 = 304vh; 400vh * 0.8 = 320vh
+           We add a generous buffer for scroll-trigger alignment. */
+        .rs-services-fan-scroll {
+            height: 280vh !important;
+        }
+        .timeline-scroll-driver {
+            height: 300vh !important;
         }
     </style>
 </head>
