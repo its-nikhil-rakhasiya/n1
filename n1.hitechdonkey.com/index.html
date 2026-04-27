@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="zxx">
 
 
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         /* =============================================
-           Banner Contact Form — Form Overlaps Girl Image
+           Banner Contact Form â€” Form Overlaps Girl Image
         ============================================= */
 
         /* Right column: position:relative so the form can be overlaid */
@@ -242,11 +242,11 @@
         }
 
         /* =============================================
-           Glass Effect — Transparent Header over Banner
+           Glass Effect â€” Transparent Header over Banner
         ============================================= */
         @media (min-width: 992px) {
 
-            /* Overlay Header Container — only for main header, not sticky */
+            /* Overlay Header Container â€” only for main header, not sticky */
             .rs-header-area.header-transparent:not(.rs-sticky-header) {
                 position: absolute;
                 width: 100%;
@@ -266,7 +266,7 @@
                 align-items: center;
             }
 
-            /* Sticky header — glass while not yet active */
+            /* Sticky header â€” glass while not yet active */
             .header-transparent.rs-sticky-header:not(.active) {
                 background: rgba(43, 57, 68, 0.4) !important;
                 backdrop-filter: blur(20px);
@@ -279,11 +279,11 @@
                 visibility: hidden;
                 opacity: 0;
                 pointer-events: none;
-                /* Only transition specific props — NOT 'all' — to avoid clipping dropdown */
+                /* Only transition specific props â€” NOT 'all' â€” to avoid clipping dropdown */
                 transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease, background 0.4s ease;
             }
 
-            /* Sticky header — fully visible when active */
+            /* Sticky header â€” fully visible when active */
             .header-transparent.rs-sticky-header.active {
                 background: var(--rs-theme-secondary) !important;
                 backdrop-filter: none;
@@ -306,6 +306,14 @@
             #mobile-menu-two {
                 display: none !important;
             }
+        }
+
+        /* =============================================
+           Global 80% Page Scale - makes full page render
+           as if the browser is zoomed to 80%
+        ============================================= */
+        html {
+            zoom: 0.8;
         }
     </style>
 </head>
@@ -1175,7 +1183,7 @@
                                                         Turning Vision Into Reality
                                                     </span>
                                                     <h1 class="rs-banner-title rs-split-text-enable split-in-left">
-                                                        India’s First Integrated <br> <span class="rs-typed-text"
+                                                        Indiaâ€™s First Integrated <br> <span class="rs-typed-text"
                                                             data-typed="Assessment, Recruitment and Workforce Platform"></span>
                                                     </h1>
                                                     <span class="rs-banner-line"></span>
@@ -1456,7 +1464,7 @@
         </section>
         <!-- about area end -->
 
-        <!-- services area start — Wisk Aero fan scroll -->
+        <!-- services area start â€” Wisk Aero fan scroll -->
         <div id="servicesFanSection" class="rs-services-fan-scroll">
             <!-- sticky viewport -->
             <div class="rs-services-fan-sticky rs-services-two">
@@ -1728,16 +1736,16 @@
         </div>
         <!-- services area end -->
 
-        <!-- ══ SERVICES FAN SCROLL CSS ══ -->
+        <!-- â•â• SERVICES FAN SCROLL CSS â•â• -->
         <style>
-            /* ── SCROLL WRAPPER ── */
+            /* â”€â”€ SCROLL WRAPPER â”€â”€ */
             .rs-services-fan-scroll {
                 position: relative;
                 height: 380vh;
                 /* scroll travel = animation length */
             }
 
-            /* ── STICKY VIEWPORT (pins while scrolling 380vh) ── */
+            /* â”€â”€ STICKY VIEWPORT (pins while scrolling 380vh) â”€â”€ */
             .rs-services-fan-sticky {
                 position: sticky;
                 top: 0;
@@ -1751,7 +1759,7 @@
                 background: var(--rs-theme-secondary, #2B3944);
             }
 
-            /* ── BACKGROUND SHAPE ── */
+            /* â”€â”€ BACKGROUND SHAPE â”€â”€ */
             .rs-services-fan-shape {
                 position: absolute;
                 top: 0;
@@ -1769,7 +1777,7 @@
                 opacity: 0.18;
             }
 
-            /* ── HEADING ── */
+            /* â”€â”€ HEADING â”€â”€ */
             .rs-services-fan-heading {
                 text-align: center;
                 margin-bottom: 32px;
@@ -1783,17 +1791,17 @@
                 margin-bottom: 10px;
             }
 
-            /* ── STAGE: the 4-card absolute canvas ── */
+            /* â”€â”€ STAGE: the 4-card absolute canvas â”€â”€ */
             .rs-services-fan-stage {
                 position: relative;
                 width: 100%;
-                /* auto height — cards are absolute positioned, stage just holds z-context */
+                /* auto height â€” cards are absolute positioned, stage just holds z-context */
                 height: 480px;
                 z-index: 5;
                 flex-shrink: 0;
             }
 
-            /* ── FAN STAGE: cap image height so full card fits within 100vh ── */
+            /* â”€â”€ FAN STAGE: cap image height so full card fits within 100vh â”€â”€ */
             .rs-services-fan-stage .rs-services-thumb {
                 height: 160px;
                 overflow: hidden;
@@ -1805,10 +1813,10 @@
                 object-fit: cover;
             }
 
-            /* ── FAN CARD base ── */
+            /* â”€â”€ FAN CARD base â”€â”€ */
             .rs-services-fan-card {
                 position: absolute !important;
-                /* Start stacked center — JS sets width & position */
+                /* Start stacked center â€” JS sets width & position */
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
@@ -1819,7 +1827,7 @@
                 /* CRITICAL: Prevent CSS transitions from fighting GSAP */
             }
 
-            /* ── MOBILE SIMPLE SET ── */
+            /* â”€â”€ MOBILE SIMPLE SET â”€â”€ */
             @media (max-width: 991px) {
                 .rs-services-fan-scroll {
                     height: auto !important;
@@ -1856,7 +1864,7 @@
             }
         </style>
 
-        <!-- ══ GSAP + ScrollTrigger for fan animation ══ -->
+        <!-- â•â• GSAP + ScrollTrigger for fan animation â•â• -->
         <script>
             (function () {
                 // Wait for GSAP to load (already loaded on page)
@@ -1878,7 +1886,7 @@
                     if (!section || cards.some(function (c) { return !c; })) return;
 
                     // Match original rs-services-two grid:
-                    // padding: 75px each side (0px on ≤1600px), gap: 30px
+                    // padding: 75px each side (0px on â‰¤1600px), gap: 30px
                     var GAP = 30; // same as original grid gap
 
                     function calcCardW() {
@@ -1983,15 +1991,15 @@
 
 
 
-        <!-- services area start — Timeline Component (scroll-driven animation) -->
+        <!-- services area start â€” Timeline Component (scroll-driven animation) -->
         <style>
-        /* ── SCROLL WRAPPER ── */
+        /* â”€â”€ SCROLL WRAPPER â”€â”€ */
         .timeline-scroll-driver {
             height: 400vh;
             position: relative;
         }
 
-        /* ── STICKY VIEWPORT ── */
+        /* â”€â”€ STICKY VIEWPORT â”€â”€ */
         .timeline-sticky-container {
             position: sticky;
             top: 0;
@@ -2018,7 +2026,7 @@
             opacity: 0.18;
         }
 
-        /* ── INNER CONTAINER ── */
+        /* â”€â”€ INNER CONTAINER â”€â”€ */
         .timeline-inner-container {
             --primary-bg: #2B3944;
             --accent-theme: #AB052D;
@@ -2361,7 +2369,7 @@
         })();
         </script>
 
-        <!-- (dummy section tag to satisfy original template PHP structure — EMPTY) -->
+        <!-- (dummy section tag to satisfy original template PHP structure â€” EMPTY) -->
         <section class="rs-services-area section-space theme-secondary rs-services-two"
             style="display:none !important; height:0 !important; overflow:hidden !important; padding:0 !important; margin:0 !important;">
             <div class="rs-services-wrapper">
@@ -4927,7 +4935,7 @@
                                                         <i class="ri-star-line"></i>
                                                     </div>
                                                 </div>
-                                                <p class="rs-testimonial-desc"> “ICEF's team provided exceptional consulting services that truly transformed our business operations. Their strategic insights and dedication helped us achieve our goals faster than we ever anticipated.”
+                                                <p class="rs-testimonial-desc"> â€œICEF's team provided exceptional consulting services that truly transformed our business operations. Their strategic insights and dedication helped us achieve our goals faster than we ever anticipated.â€
                                                 </p>
                                                 <div class="rs-testimonial-avater-wrapper">
                                                     <div class="rs-testimonial-avater-thumb">
@@ -4966,7 +4974,7 @@
                                                         <i class="ri-star-line"></i>
                                                     </div>
                                                 </div>
-                                                <p class="rs-testimonial-desc"> “Working with this consulting agency has been a game-changer for our projects. Their attention to detail, proactive approach, and deep understanding of the market dynamics have been invaluable.”
+                                                <p class="rs-testimonial-desc"> â€œWorking with this consulting agency has been a game-changer for our projects. Their attention to detail, proactive approach, and deep understanding of the market dynamics have been invaluable.â€
                                                 </p>
                                                 <div class="rs-testimonial-avater-wrapper">
                                                     <div class="rs-testimonial-avater-thumb">
@@ -5005,7 +5013,7 @@
                                                         <i class="ri-star-line"></i>
                                                     </div>
                                                 </div>
-                                                <p class="rs-testimonial-desc"> “The technology solutions recommended by the consulting team were perfectly tailored to our needs. They provided actionable, scalable strategies that brought real value to our organization.”
+                                                <p class="rs-testimonial-desc"> â€œThe technology solutions recommended by the consulting team were perfectly tailored to our needs. They provided actionable, scalable strategies that brought real value to our organization.â€
                                                 </p>
                                                 <div class="rs-testimonial-avater-wrapper">
                                                     <div class="rs-testimonial-avater-thumb">
@@ -5582,7 +5590,7 @@
                     <div class="rs-footer-right">
                         <div class="rs-footer-widget-wrapper">
                             <div class="rs-footer-widget footer-1-col-2">
-                                <h5 class="rs-footer-widget-title">About​</h5>
+                                <h5 class="rs-footer-widget-title">Aboutâ€‹</h5>
                                 <div class="rs-footer-widget-link">
                                     <ul>
                                         <li><a href="about-mission.html">About ICEF India</a></li>
@@ -5680,7 +5688,7 @@
                         <div class="rs-footer-copyright-right">
                             <div class="rs-footer-copyright-item">
                                 <div class="rs-footer-copyright">
-                                    <p class="underline">Copyright © <span id="year">2025</span> ICEF INDIA. All rights reserved. Designed by <a
+                                    <p class="underline">Copyright Â© <span id="year">2025</span> ICEF INDIA. All rights reserved. Designed by <a
                                             target="_blank" href="https://agumentiksoftware.com/">AGUMENTIK.</a></p>
                                 </div>
                             </div>
