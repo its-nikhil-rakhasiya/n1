@@ -988,37 +988,52 @@
     </style>
 
     <!-- =============================================
-         Hero Banner: Prevent re-animation on scroll-back
+         Hero Banner: Fix slide transition overlap & scroll-back flash
     ============================================= -->
     <style>
-        /* Lock banner content animations after first play */
+        /* ---- Slide Transition: Hide non-active slide content ---- */
+        /* This prevents old slide text from bleeding through during Swiper fade */
+        .rs-banner-two .swiper-slide .rs-banner-content-wrapper {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .rs-banner-two .swiper-slide-active .rs-banner-content-wrapper {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ---- Lock banner content animations after first play ---- */
         .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-subtitle,
         .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-title,
         .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-desc,
         .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-btn {
             animation: none !important;
             opacity: 1 !important;
-            transform: none !important;
+            transform: translateY(0) !important;
             visibility: visible !important;
         }
-        /* Prevent background thumb opacity from re-transitioning */
+
+        /* ---- Background: keep at opacity:1, never flash transparent ---- */
         .rs-banner-two .swiper-slide .rs-banner-bg-thumb {
             opacity: 1 !important;
         }
-        /* Prevent WOW-animated banner elements from resetting */
+
+        /* ---- WOW: prevent re-animation on scroll-back ---- */
         .rs-banner-area .animated {
-            animation-fill-mode: both;
-            animation-iteration-count: 1;
+            animation-fill-mode: both !important;
+            animation-iteration-count: 1 !important;
         }
     </style>
     <script>
         (function () {
             var bannerSection = document.querySelector('.rs-banner-two');
             if (!bannerSection) return;
-            // Wait for longest animation (delay 0.9s + duration 1.3s = 2.2s) then lock
+            // After all initial animations finish (longest: 0.9s delay + 1.3s = 2.2s),
+            // add class to disable re-triggering on scroll-back.
             setTimeout(function () {
                 bannerSection.classList.add('rs-banner-played');
-            }, 2300);
+            }, 2400);
         })();
     </script>
 
