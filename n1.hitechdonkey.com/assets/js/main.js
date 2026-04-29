@@ -313,6 +313,9 @@
                     autoplay: autoplay,
                     direction: direction,
                     effect: effect,
+                    fadeEffect: {
+                        crossFade: true
+                    },
                     enabled: fridgeMovement,
                     grabCursor: grabCursor,
                     oneWayMovement: oneWayMovement,
