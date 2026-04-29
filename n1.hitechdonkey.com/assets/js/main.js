@@ -313,9 +313,6 @@
                     autoplay: autoplay,
                     direction: direction,
                     effect: effect,
-                    fadeEffect: {
-                        crossFade: true
-                    },
                     enabled: fridgeMovement,
                     grabCursor: grabCursor,
                     oneWayMovement: oneWayMovement,
@@ -523,11 +520,11 @@
             $sidebarTarget.find('li.menu-item-has-children').append('<span class="menu-expand"><i class="ri-add-large-line"></i></span>');
 
             // Handle Submenu Toggle (Accordion)
-            $sidebarTarget.on('click', '.menu-expand', function(e) {
+            $sidebarTarget.on('click', '.menu-expand', function (e) {
                 e.preventDefault();
                 $(this).toggleClass('active');
                 $(this).siblings('.submenu, .mega-menu').slideToggle(300);
-                
+
                 // Toggle between Plus and Minus icons
                 var $icon = $(this).find('i');
                 if ($(this).hasClass('active')) {
@@ -539,7 +536,7 @@
 
             // Highlight Active Link based on URL
             var currentUrl = window.location.pathname.split('/').pop() || 'index.php';
-            $sidebarTarget.find('a').each(function() {
+            $sidebarTarget.find('a').each(function () {
                 var linkUrl = $(this).attr('href');
                 if (linkUrl === currentUrl) {
                     $(this).addClass('active');
@@ -624,7 +621,7 @@
                     const $active = $this.find('.swiper-slide.swiper-slide-active');
                     if (!$active.length) return;
                     $this.parent().css({
-                        "background-image": `url(${ $active.data('bg') })`,
+                        "background-image": `url(${$active.data('bg')})`,
                     });
                 }
 
@@ -803,10 +800,10 @@
     $(form).submit(function (e) {
         e.preventDefault();
         $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: $(form).serialize()
-            })
+            type: 'POST',
+            url: $(form).attr('action'),
+            data: $(form).serialize()
+        })
             .done(function (response) {
                 $(formMessages).removeClass('error').addClass('success').text(response);
                 $('#name, #email, #message, #phone, #website, #subject, #date, #time').val('');
@@ -817,9 +814,9 @@
             });
     });
     // Active Menu Link Highlighter
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         var currentUrl = window.location.pathname.split('/').pop() || 'index.php';
-        $('.mean-nav ul li a').each(function() {
+        $('.mean-nav ul li a').each(function () {
             var linkUrl = $(this).attr('href');
             if (linkUrl === currentUrl) {
                 $(this).addClass('active');
