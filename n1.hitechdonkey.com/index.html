@@ -988,33 +988,41 @@
     </style>
 
     <!-- =============================================
-         Hero Banner: Fix slide transition overlap & scroll-back flash
+         Hero Banner: Flawless Fade Transition
     ============================================= -->
     <style>
-        /* ---- Slide Transition: Hide non-active slide content ---- */
-        /* This prevents old slide text from bleeding through during Swiper fade */
-        .rs-banner-two .swiper-slide .rs-banner-content-wrapper {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-        }
-        .rs-banner-two .swiper-slide-active .rs-banner-content-wrapper {
-            opacity: 1;
-            visibility: visible;
+        /* Force Swiper slides to cross-fade cleanly and hide duplicates */
+        .rs-banner-two .swiper-slide {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out !important;
+            pointer-events: none;
         }
 
-        /* ---- Lock banner content animations after first play ---- */
-        .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-subtitle,
-        .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-title,
-        .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-desc,
-        .rs-banner-two.rs-banner-played .swiper-slide-active .rs-banner-btn {
-            animation: none !important;
+        .rs-banner-two .swiper-slide.swiper-slide-active,
+        .rs-banner-two .swiper-slide.swiper-slide-duplicate-active {
             opacity: 1 !important;
-            transform: translateY(0) !important;
             visibility: visible !important;
+            pointer-events: auto;
+            z-index: 2;
         }
 
-        /* ---- Background: keep at opacity:1, never flash transparent ---- */
+        /* Ensure text completely disappears when slide is inactive */
+        .rs-banner-two .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-duplicate-active) .rs-banner-content-wrapper {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: none !important; /* Instantly hide text on outgoing slide */
+        }
+        
+        /* Make sure the text on active slide is visible */
+        .rs-banner-two .swiper-slide.swiper-slide-active .rs-banner-content-wrapper,
+        .rs-banner-two .swiper-slide.swiper-slide-duplicate-active .rs-banner-content-wrapper {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transition: opacity 0.5s ease 0.5s !important; /* Delay text fade-in slightly */
+        }
+
+        /* ---- Background: Ensure backgrounds cover properly ---- */
         .rs-banner-two .swiper-slide .rs-banner-bg-thumb {
             opacity: 1 !important;
         }
@@ -1025,17 +1033,6 @@
             animation-iteration-count: 1 !important;
         }
     </style>
-    <script>
-        (function () {
-            var bannerSection = document.querySelector('.rs-banner-two');
-            if (!bannerSection) return;
-            // After all initial animations finish (longest: 0.9s delay + 1.3s = 2.2s),
-            // add class to disable re-triggering on scroll-back.
-            setTimeout(function () {
-                bannerSection.classList.add('rs-banner-played');
-            }, 2400);
-        })();
-    </script>
 
         <!-- Offcanvas area start -->
     <div class="fix">
